@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Descomprimir el proyecto
-        run: unzip -q mod_v02.zip -d proyecto
+        run: unzip -q portales_v01.zip -d proyecto
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
