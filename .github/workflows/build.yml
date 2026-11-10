@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Descomprimir el proyecto
-        run: unzip -q "dedsafio_server_pack (1).zip" -d proyecto
+        run: unzip -q mod_v02.zip -d proyecto
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -18,8 +18,8 @@ jobs:
           gradle-version: 8.8
       - name: Compilar
         run: gradle build
-        working-directory: proyecto/dedsafio_server_pack/mod
+        working-directory: proyecto
       - uses: actions/upload-artifact@v4
         with:
           name: dedsafio_server-jar
-          path: proyecto/dedsafio_server_pack/mod/build/libs/*.jar
+          path: proyecto/build/libs/*.jar
