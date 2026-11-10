@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Descomprimir el proyecto
-        run: unzip -q totem_berserker_global_individual2.zip -d proyecto
+        run: unzip -q portales_v02.zip -d proyecto
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -21,5 +21,5 @@ jobs:
         working-directory: proyecto/totem_berserker_addon
       - uses: actions/upload-artifact@v4
         with:
-          name: totem_berserker-jar
+          name: portalesv2-jar
           path: proyecto/totem_berserker_addon/build/libs/*.jar
