@@ -1,4 +1,3 @@
-
 name: build-jar
 
 on:
@@ -18,6 +17,13 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+
+      - name: Verificar archivos
+        run: |
+          echo "Archivos del proyecto:"
+          ls -la
+          echo "Contenido de settings.gradle:"
+          cat settings.gradle
 
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
