@@ -1,4 +1,5 @@
 
+
 name: build-jar
 
 on:
@@ -19,6 +20,9 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Descomprimir el proyecto
+        run: unzip -q portales_v02.zip -d proyecto
+
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
@@ -27,11 +31,13 @@ jobs:
 
       - name: Compilar mod
         run: gradle build --no-daemon
+        working-directory: proyecto
 
       - name: Subir JAR
         uses: actions/upload-artifact@v4
         with:
           name: dedsafio-portales-jar
-          path: build/libs/*.jar
+          path: proyecto/build/libs/*.jar
           if-no-files-found: error
+
 
