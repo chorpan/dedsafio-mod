@@ -19,7 +19,7 @@ jobs:
           java-version: 17
 
       - name: Descomprimir proyecto
-        run: unzip -q dedsafio-portales.zip -d proyecto
+        run: unzip -q portales_sin_cataclysm.zip -d proyecto
 
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -34,7 +34,7 @@ jobs:
       - name: Subir JAR
         uses: actions/upload-artifact@v4
         with:
-          name: dedsafio-portales-jar
+          name: portales-sin-cataclysm-jar
           path: proyecto/build/libs/*.jar
           if-no-files-found: error
 
