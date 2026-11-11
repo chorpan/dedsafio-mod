@@ -12,23 +12,25 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Descomprimir el proyecto
-        run: unzip -q portales_sin_cataclysm.zip -d proyecto
+        run: unzip -q portales_sin_cataclysm_fix.zip -d proyecto
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
 
-      - uses: gradle/actions/setup-gradle@v3
+      - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.8
+          cache-disabled: true
 
       - name: Compilar
-        run: gradle build
+        run: gradle build --no-daemon
         working-directory: proyecto
 
       - uses: actions/upload-artifact@v4
         with:
           name: portales-sin-cataclysm-jar
           path: proyecto/build/libs/*.jar
+          if-no-files-found: error
 
