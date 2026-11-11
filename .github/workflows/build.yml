@@ -20,8 +20,8 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Descomprimir el proyecto
-        run: unzip -q portales_v02.zip -d proyecto
+      - name: Descomprimir proyecto
+        run: unzip -q dedsafio-difficulty-forge-1.20.1.zip -d proyecto
 
       - name: Configurar Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -36,7 +36,7 @@ jobs:
       - name: Subir JAR
         uses: actions/upload-artifact@v4
         with:
-          name: dedsafio-portales-jar
+          name: dedsafio-difficulty-jar
           path: proyecto/build/libs/*.jar
           if-no-files-found: error
 
