@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Descomprimir el proyecto
-        run: unzip -q portales_bosses_finales_fix2.zip -d proyecto
+        run: unzip -q dedsafio_templo_jefe_addon.zip -d proyecto
 
       - uses: actions/setup-java@v5
         with:
@@ -31,7 +31,6 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: portales-bosses-finales-jar
+          name: dedsafio-templo-jefe-jar
           path: proyecto/build/libs/*.jar
           if-no-files-found: error
-
